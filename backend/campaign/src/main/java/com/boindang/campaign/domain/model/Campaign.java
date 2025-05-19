@@ -93,5 +93,12 @@ public class Campaign {
         this.currentApplicants++;
     }
 
+    public void close() {
+        if (this.status == CampaignStatus.CLOSED) {
+            return; // 이미 종료된 상태라면 무시
+        }
+        this.status = CampaignStatus.CLOSED;
+    }
+
 }
 
