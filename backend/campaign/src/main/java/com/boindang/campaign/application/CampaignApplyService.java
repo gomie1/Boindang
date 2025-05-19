@@ -33,7 +33,7 @@ public class CampaignApplyService {
 	private final CampaignApplicationRepository campaignApplicationRepository;
 
 	public ApplyResultResponse apply(Long campaignId, Long userId) {
-		log.info("🔥 체험단 신청 시작: campaignId={}, userId={}", campaignId, userId);
+		log.debug("🔥 체험단 신청 시작: campaignId={}, userId={}", campaignId, userId);
 
 		Campaign campaign = campaignRepository.findById(campaignId)
 			.orElseThrow(() -> new CampaignNotFoundException("해당 체험단이 존재하지 않습니다."));
@@ -45,10 +45,13 @@ public class CampaignApplyService {
 
 		// TTL 계산
 		Duration ttl = Duration.between(LocalDateTime.now(), campaign.getEndDate());
+		log.debug("ttl: " + ttl);
 		TryApplyResult result = redisStore.tryApply(campaignId, userId, campaign.getCapacity(), ttl);
+		log.debug("currentCount: " + result.currentCount());
 
 		// ✅ 모집 마감된 경우 (동시 신청에서 탈락자)
 		if (result.isOverLimit()) {
+			log.debug("[TTL]마감됨");
 			return new ApplyResultResponse(campaignId, false, "정원이 마감되었습니다.");
 		}
 
@@ -56,9 +59,11 @@ public class CampaignApplyService {
 		if (result.currentCount() == campaign.getCapacity()) {
 			campaign.close();
 			campaignRepository.save(campaign);
+			log.debug("마지막 인원, status: " + campaign.getStatus());
 		}
 
 		// ✅ Kafka 발행
+		log.debug("Kafka 발행 시작");
 		kafkaProducer.send("apply-campaign", new ApplyEvent(campaignId, userId, true));
 
 		// ✅ 선정된 사람
@@ -81,6 +86,5 @@ public class CampaignApplyService {
 		campaignApplicationRepository.save(application);
 		log.info("✅ [Baseline] 신청 저장 완료: {}", application);
 	}
-
 
 }
