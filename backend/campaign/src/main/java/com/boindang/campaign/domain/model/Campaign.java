@@ -74,7 +74,7 @@ public class Campaign {
     @Transient
     public CampaignStatus calculateStatus(LocalDateTime now) {
         if (now.isBefore(this.startDate)) return CampaignStatus.PENDING;
-        if (now.isAfter(this.endDate)) return CampaignStatus.CLOSED;
+        if (now.isAfter(this.endDate) || this.capacity == this.currentApplicants) return CampaignStatus.CLOSED;
         return CampaignStatus.OPEN;
     }
 
