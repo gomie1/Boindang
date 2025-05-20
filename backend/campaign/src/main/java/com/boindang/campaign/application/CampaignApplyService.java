@@ -77,14 +77,27 @@ public class CampaignApplyService {
 		Campaign campaign = campaignRepository.findById(campaignId)
 			.orElseThrow(() -> new CampaignNotFoundException("해당 체험단이 존재하지 않습니다."));
 
-		// DB에 바로 저장 (Redis/Kafka 사용 X)
+		// 모집 상태 확인
+		if (campaign.getStatus() != CampaignStatus.OPEN) {
+			throw new BadRequestException("진행중인 체험단만 신청할 수 있습니다.");
+		}
+
+		boolean isSelected = campaign.getCurrentApplicants() < campaign.getCapacity();
+
+		if (isSelected) {
+			campaign.increaseApplicant(); // 카운트 증가
+			campaign.calculateAndSyncStatus(LocalDateTime.now());
+			campaignRepository.save(campaign);
+		}
+
+		// ✅ 선정 여부 관계없이 DB에 저장
 		CampaignApplication application = CampaignApplication.of(
-			new ApplyEvent(campaignId, userId, true), // 항상 선정 처리
+			new ApplyEvent(campaignId, userId, isSelected),
 			campaign
 		);
-
 		campaignApplicationRepository.save(application);
-		log.info("✅ [Baseline] 신청 저장 완료: {}", application);
+
+		log.info("✅ [Baseline] 신청 저장 완료: 선정 여부 = {}", isSelected);
 	}
 
 }
