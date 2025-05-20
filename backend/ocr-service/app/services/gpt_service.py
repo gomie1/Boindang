@@ -25,7 +25,7 @@ async def call_gpt_api(messages: list[dict]) -> str:
     }
 
     print("\n🚀 [GPT 호출 시작]")
-    print("🔸 메시지:", messages)
+    # print("🔸 메시지:", messages)
 
     async with httpx.AsyncClient(timeout=60.0) as client:
         response = await client.post(GPT_API_URL, headers=headers, json=payload)
@@ -33,7 +33,7 @@ async def call_gpt_api(messages: list[dict]) -> str:
         data = response.json()
 
     print("✅ [GPT 응답 수신 완료]")
-    print("🔹 응답 내용:", data)
+    # print("🔹 응답 내용:", data)
 
     return data["choices"][0]["message"]["content"]
 
