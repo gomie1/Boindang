@@ -8,7 +8,7 @@ spring:
   jpa:
     hibernate:
       ddl-auto: none  # 테스트 끝나면 테이블 제거됨
-    show-sql: true
+    show-sql: false
     properties:
       hibernate:
         format_sql: true

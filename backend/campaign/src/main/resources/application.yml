@@ -39,24 +39,24 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
 
-eureka:
-  client:
-    enabled: true
-    fetch-registry: true
-    register-with-eureka: true
-    service-url:
-      defaultZone: ${EUREKA_URL}
-  instance:
-    hostname: ${HOST_IP}
+#eureka:
+#  client:
+#    enabled: true
+#    fetch-registry: true
+#    register-with-eureka: true
+#    service-url:
+#      defaultZone: ${EUREKA_URL}
+#  instance:
+#    hostname: ${HOST_IP}
 
 logging:
   level:
     root: info
     com.boindang.campaign: debug
 
-#eureka:
-#  client:
-#    enabled: false
+eureka:
+  client:
+    enabled: false
 
 springdoc:
   swagger-ui:
