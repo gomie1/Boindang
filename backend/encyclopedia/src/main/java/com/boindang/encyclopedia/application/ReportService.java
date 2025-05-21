@@ -36,7 +36,7 @@ public class ReportService {
 			.collect(Collectors.toMap(IngredientDictionary::getName, i -> i));
 
 		Map<String, ReportDocument> reportMap = reports.stream()
-			.collect(Collectors.toMap(ReportDocument::getName, r -> r));
+			.collect(Collectors.toMap(ReportDocument::getName, r -> r, (existing, replacement) -> existing));
 
 		List<IngredientReportResponse> ingredientResponses = new ArrayList<>();
 		List<RiskIngredientData> riskyList = new ArrayList<>();
