@@ -41,8 +41,8 @@ public class ReportService {
 		List<String> resolvedNames = resolveActualNames(ingredientNames);
 
 		// 1. ingredients, reports 조회
-		List<ReportDocument> reports = reportRepository.findByNameIn(ingredientNames);
-		List<IngredientDictionary> ingredients = ingredientRepository.findByNameIn(ingredientNames);
+		List<ReportDocument> reports = reportRepository.findByNameIn(resolvedNames);
+		List<IngredientDictionary> ingredients = ingredientRepository.findByNameIn(resolvedNames);
 
 		// 2. 이름으로 빠르게 찾기 위한 map 구성
 		Map<String, IngredientDictionary> ingredientMap = ingredients.stream()
