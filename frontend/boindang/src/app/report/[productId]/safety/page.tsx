@@ -83,13 +83,6 @@ const statusInfo: Record<StatusType, { color: string; text: string; description:
   }
 };
 
-// API index를 내부 status 키로 매핑
-const apiIndexToStatusType: { [key: string]: StatusType } = {
-  '권장': 'recommend',
-  '주의': 'caution',
-  '위험': 'danger',
-};
-
 // nutrientDetails의 percent를 기반으로 최종 StatusType 결정
 function determineNutrientStatus(apiIndex: number): StatusType {
   if (apiIndex <= 55) {
