@@ -3,10 +3,20 @@ package com.boindang.encyclopedia.application;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
+import org.elasticsearch.action.search.SearchRequest;
+import org.elasticsearch.action.search.SearchResponse;
+import org.elasticsearch.client.RequestOptions;
+import org.elasticsearch.client.RestHighLevelClient;
+import org.elasticsearch.common.unit.Fuzziness;
+import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.search.SearchHit;
+import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.springframework.stereotype.Service;
 
 import com.boindang.encyclopedia.domain.IngredientDictionary;
@@ -25,8 +35,11 @@ public class ReportService {
 
 	private final ReportElasticsearchRepository reportRepository;
 	private final EncyclopediaRepository ingredientRepository;
+	private final RestHighLevelClient client;
 
 	public UserReportResponse getUserReport(List<String> ingredientNames, String userType) {
+		List<String> resolvedNames = resolveActualNames(ingredientNames);
+
 		// 1. ingredients, reports 조회
 		List<ReportDocument> reports = reportRepository.findByNameIn(ingredientNames);
 		List<IngredientDictionary> ingredients = ingredientRepository.findByNameIn(ingredientNames);
@@ -137,4 +150,32 @@ public class ReportService {
 	}
 
 	private record RiskIngredientData(int score, List<String> message) {}
+
+	public List<String> resolveActualNames(List<String> queries) {
+		Set<String> result = new HashSet<>();
+
+		for (String query : queries) {
+			SearchRequest request = new SearchRequest("reports");
+			SearchSourceBuilder builder = new SearchSourceBuilder()
+				.query(QueryBuilders.boolQuery()
+					.should(QueryBuilders.matchQuery("name", query).fuzziness(Fuzziness.AUTO))
+					.should(QueryBuilders.prefixQuery("name", query))
+				)
+				.size(3); // 최대 3개까지 대응
+
+			try {
+				SearchResponse response = client.search(request, RequestOptions.DEFAULT);
+				for (SearchHit hit : response.getHits()) {
+					Map<String, Object> src = hit.getSourceAsMap();
+					if (src.get("name") != null) {
+						result.add(src.get("name").toString());
+					}
+				}
+			} catch (Exception e) {
+				// 로그만 남기고 무시
+			}
+		}
+		return new ArrayList<>(result);
+	}
+
 }
