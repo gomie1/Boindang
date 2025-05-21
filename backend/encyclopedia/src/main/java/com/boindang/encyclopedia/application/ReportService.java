@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -38,25 +39,27 @@ public class ReportService {
 	private final RestHighLevelClient client;
 
 	public UserReportResponse getUserReport(List<String> ingredientNames, String userType) {
-		List<String> resolvedNames = resolveActualNames(ingredientNames);
+		Map<String, String> resolvedMap = resolveActualNames(ingredientNames);
+		List<String> resolvedNames = new ArrayList<>(resolvedMap.values());
 
-		// 1. ingredients, reports 조회
 		List<ReportDocument> reports = reportRepository.findByNameIn(resolvedNames);
 		List<IngredientDictionary> ingredients = ingredientRepository.findByNameIn(resolvedNames);
 
-		// 2. 이름으로 빠르게 찾기 위한 map 구성
 		Map<String, IngredientDictionary> ingredientMap = ingredients.stream()
 			.collect(Collectors.toMap(IngredientDictionary::getName, i -> i));
 
 		Map<String, ReportDocument> reportMap = reports.stream()
-			.collect(Collectors.toMap(ReportDocument::getName, r -> r, (existing, replacement) -> existing));
+			.collect(Collectors.toMap(ReportDocument::getName, r -> r, (a, b) -> a));
 
 		List<IngredientReportResponse> ingredientResponses = new ArrayList<>();
 		List<RiskIngredientData> riskyList = new ArrayList<>();
 
-		for (String name : resolvedNames) {
-			IngredientDictionary ingredient = ingredientMap.get(name);
-			ReportDocument report = reportMap.get(name);
+		for (Map.Entry<String, String> entry : resolvedMap.entrySet()) {
+			String original = entry.getKey();     // 사용자가 입력한 값
+			String resolved = entry.getValue();   // 실제 검색된 성분
+
+			IngredientDictionary ingredient = ingredientMap.get(resolved);
+			ReportDocument report = reportMap.get(resolved);
 
 			String riskLevel = report != null
 				? getRiskLevelByUserType(
@@ -74,7 +77,8 @@ public class ReportService {
 			List<String> userMessage = report != null ? getMessageByUserType(report, userType) : List.of("정보 없음", "해당 성분에 대한 설명이 없습니다.");
 
 			ingredientResponses.add(IngredientReportResponse.builder()
-				.name(name)
+				.name(original) // ✅ 추가됨
+				.newName(resolved)
 				.gi(ingredient != null ? ingredient.getGi() : 0)
 				.shortMessage(report != null ? report.getShortMessage() : "설명이 없습니다.")
 				.keyword(report != null ? report.getKeyword() : "정보 없음")
@@ -82,20 +86,17 @@ public class ReportService {
 				.riskLevel(riskLevel)
 				.build());
 
-
 			if ("주의".equals(riskLevel) || "높음".equals(riskLevel)) {
 				riskyList.add(new RiskIngredientData(score, userMessage));
 			}
 		}
 
-		// 3. 위험 성분 정렬 및 Top 3 추출
 		List<RiskIngredientSummary> topRisks = reports.stream()
 			.filter(doc -> {
 				IngredientDictionary ingredient = ingredientMap.get(doc.getName());
 				String fallbackRisk = (ingredient != null && ingredient.getRiskLevel() != null)
 					? ingredient.getRiskLevel().getLabel()
 					: "정보 없음";
-
 				String risk = getRiskLevelByUserType(doc.getRiskLevel(), userType, fallbackRisk);
 				return "주의".equals(risk) || "높음".equals(risk);
 			})
@@ -112,12 +113,12 @@ public class ReportService {
 			.limit(3)
 			.toList();
 
-
 		return UserReportResponse.builder()
 			.ingredients(ingredientResponses)
 			.topRisks(topRisks)
 			.build();
 	}
+
 
 	private String getRiskLevelByUserType(ReportDocument.RiskLevel reportRisk, String userType, String ingredientRiskLevel) {
 		return switch (userType.toLowerCase()) {
@@ -151,8 +152,8 @@ public class ReportService {
 
 	private record RiskIngredientData(int score, List<String> message) {}
 
-	public List<String> resolveActualNames(List<String> queries) {
-		List<String> result = new ArrayList<>();
+	public Map<String, String> resolveActualNames(List<String> queries) {
+		Map<String, String> resolvedMap = new LinkedHashMap<>(); // 순서 유지
 
 		for (String query : queries) {
 			String bestMatch = null;
@@ -178,18 +179,13 @@ public class ReportService {
 					}
 				}
 			} catch (Exception e) {
-				// 로그만 기록 (무시)
+				// log
 			}
 
-			if (bestMatch != null) {
-				result.add(bestMatch);
-			} else {
-				// fallback: 아무것도 못 찾았으면 원래 입력값 사용
-				result.add(query);
-			}
+			resolvedMap.put(query, bestMatch != null ? bestMatch : query);
 		}
 
-		return result;
+		return resolvedMap;
 	}
 
 }
