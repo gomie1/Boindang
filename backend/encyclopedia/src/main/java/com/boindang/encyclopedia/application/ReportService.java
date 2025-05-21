@@ -56,7 +56,9 @@ public class ReportService {
 
 		for (Map.Entry<String, String> entry : resolvedMap.entrySet()) {
 			String original = entry.getKey();     // 사용자가 입력한 값
-			String resolved = entry.getValue();   // 실제 검색된 성분
+			String resolved = entry.getValue().trim();   // 실제 검색된 성분
+			System.out.println("사용자가 입력한 성분: " + original);
+			System.out.println("실제 검색된 성분: " + resolved);
 
 			IngredientDictionary ingredient = ingredientMap.get(resolved);
 			ReportDocument report = reportMap.get(resolved);
