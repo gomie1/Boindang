@@ -46,7 +46,10 @@ public class ReportService {
 		List<IngredientDictionary> ingredients = ingredientRepository.findByNameIn(resolvedNames);
 
 		Map<String, IngredientDictionary> ingredientMap = ingredients.stream()
-			.collect(Collectors.toMap(IngredientDictionary::getName, i -> i));
+			.collect(Collectors.toMap(
+				i -> normalize(i.getName()),  // name 정규화
+				i -> i
+			));
 
 		Map<String, ReportDocument> reportMap = reports.stream()
 			.collect(Collectors.toMap(ReportDocument::getName, r -> r, (a, b) -> a));
@@ -60,7 +63,7 @@ public class ReportService {
 			System.out.println("사용자가 입력한 성분: " + original);
 			System.out.println("실제 검색된 성분: " + resolved);
 
-			IngredientDictionary ingredient = ingredientMap.get(resolved);
+			IngredientDictionary ingredient = ingredientMap.get(normalize(resolved));
 			ReportDocument report = reportMap.get(resolved);
 
 			String riskLevel = report != null
@@ -125,6 +128,9 @@ public class ReportService {
 			.build();
 	}
 
+	private String normalize(String input) {
+		return input == null ? "" : input.trim().replaceAll("\\s+", "");
+	}
 
 	private String getRiskLevelByUserType(ReportDocument.RiskLevel reportRisk, String userType, String ingredientRiskLevel) {
 		return switch (userType.toLowerCase()) {
