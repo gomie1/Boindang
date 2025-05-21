@@ -39,6 +39,9 @@ public class CommentService {
 
 		commentRepository.save(comment);
 
+		post.increaseCommentCount(); // ✅ 이 한 줄 추가
+		postRepository.save(post);
+
 		String nickname = userClient.getUsernameById(userId);
 
 		return CommentResponse.from(comment, userId, nickname);
