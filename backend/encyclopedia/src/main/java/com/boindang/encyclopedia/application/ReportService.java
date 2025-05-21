@@ -152,36 +152,44 @@ public class ReportService {
 	private record RiskIngredientData(int score, List<String> message) {}
 
 	public List<String> resolveActualNames(List<String> queries) {
-		Set<String> result = new HashSet<>();
+		List<String> result = new ArrayList<>();
 
 		for (String query : queries) {
+			String bestMatch = null;
+			float topScore = -1f;
+
 			SearchRequest request = new SearchRequest("reports");
 			SearchSourceBuilder builder = new SearchSourceBuilder()
 				.query(QueryBuilders.boolQuery()
-					.should(QueryBuilders.matchQuery("name", query).fuzziness(Fuzziness.AUTO))
-					.should(QueryBuilders.prefixQuery("name", query))
+					.should(QueryBuilders.matchQuery("name", query).fuzziness(Fuzziness.AUTO).boost(2.0f))
+					.should(QueryBuilders.prefixQuery("name", query).boost(1.0f))
 				)
-				.size(1);
+				.size(5);
+
+			request.source(builder);
 
 			try {
 				SearchResponse response = client.search(request, RequestOptions.DEFAULT);
 				for (SearchHit hit : response.getHits()) {
 					Map<String, Object> src = hit.getSourceAsMap();
-					if (src.get("name") != null) {
-						result.add(src.get("name").toString());
+					if (src.get("name") != null && hit.getScore() > topScore) {
+						bestMatch = src.get("name").toString();
+						topScore = hit.getScore();
 					}
 				}
 			} catch (Exception e) {
-				// 로그만 남기고 무시
+				// 로그만 기록 (무시)
+			}
+
+			if (bestMatch != null) {
+				result.add(bestMatch);
+			} else {
+				// fallback: 아무것도 못 찾았으면 원래 입력값 사용
+				result.add(query);
 			}
 		}
 
-		if (result.isEmpty()) {
-			// fallback: 입력값 그대로 넘기거나, "정보 없음" 응답 생성
-			result.addAll(queries);
-		}
-
-		return new ArrayList<>(result);
+		return result;
 	}
 
 }
