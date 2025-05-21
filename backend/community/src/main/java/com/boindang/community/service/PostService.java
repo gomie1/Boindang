@@ -131,10 +131,14 @@ public class PostService {
 		Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "createdAt"));
 		Page<Post> posts = postRepository.findAllByUserIdAndIsDeletedFalse(userId, pageable);
 
+		String username = userClient.getUsernameById(userId); // ✅ 사용자 닉네임 조회
+
 		return posts.stream()
-			.map(PostSimpleResponse::from)
+			.map(post -> {
+				boolean likedByMe = likeRepository.existsByPostIdAndUserIdAndIsDeletedFalse(post.getId(), userId);
+				return PostSimpleResponse.from(post, username, likedByMe);
+			})
 			.toList();
 	}
-
 
 }
