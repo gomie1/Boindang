@@ -54,7 +54,7 @@ public class ReportService {
 		List<IngredientReportResponse> ingredientResponses = new ArrayList<>();
 		List<RiskIngredientData> riskyList = new ArrayList<>();
 
-		for (String name : ingredientNames) {
+		for (String name : resolvedNames) {
 			IngredientDictionary ingredient = ingredientMap.get(name);
 			ReportDocument report = reportMap.get(name);
 
