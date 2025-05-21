@@ -5,6 +5,8 @@ import java.util.Map;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.boindang.community.client.UserClient;
@@ -14,6 +16,7 @@ import com.boindang.community.dto.request.CreatePostRequest;
 import com.boindang.community.dto.response.CommentResponse;
 import com.boindang.community.dto.response.PostListResponse;
 import com.boindang.community.dto.response.PostResponse;
+import com.boindang.community.dto.response.PostSimpleResponse;
 import com.boindang.community.dto.response.PostSummaryResponse;
 import com.boindang.community.entity.Comment;
 import com.boindang.community.entity.Post;
@@ -123,5 +126,15 @@ public class PostService {
 		post.softDelete();
 		postRepository.save(post);
 	}
+
+	public List<PostSimpleResponse> getPostsByUser(Long userId, int page, int size) {
+		Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "createdAt"));
+		Page<Post> posts = postRepository.findAllByUserIdAndIsDeletedFalse(userId, pageable);
+
+		return posts.stream()
+			.map(PostSimpleResponse::from)
+			.toList();
+	}
+
 
 }
