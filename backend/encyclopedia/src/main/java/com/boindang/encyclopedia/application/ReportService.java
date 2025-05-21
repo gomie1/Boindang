@@ -86,6 +86,10 @@ public class ReportService {
 				.riskLevel(riskLevel)
 				.build());
 
+			System.out.println("🔥 [ING] " + ingredient);
+			System.out.println("🔥 [ING DESC] " + (ingredient != null ? ingredient.getDescription() : "null"));
+			System.out.println("🔥 [ING GI] " + (ingredient != null ? ingredient.getGi() : "null"));
+
 			if ("주의".equals(riskLevel) || "높음".equals(riskLevel)) {
 				riskyList.add(new RiskIngredientData(score, userMessage));
 			}
