@@ -8,7 +8,6 @@ import { getReport } from "@/api/report";
 import { ApiError, ApiResponse } from "@/types/api";
 import { ReportPageProps, ReportResultData } from "@/types/api/report";
 import { useToast } from "@/context/ToastContext";
-import Image from "next/image";
 // GI 색상 설정
 const giColors = {
   safe: '#22c55e',   // 안전 - 녹색 (0-39)
@@ -171,12 +170,11 @@ export default function ReportPage({ params: paramsPromise }: ReportPageProps) {
 
       {/* 제품명 표시 */}
       <div className="text-xl font-bold text-gray-800 text-start mb-5 bg-white rounded-2xl shadow-md p-5 transform transition-all hover:shadow-lg">
-        {report.productName || "제품명 없음"}
-        <div className="text-sm font-medium text-end text-gray-400">{report.kcal}kcal</div>
+        <div className="flex flex-row justify-between gap-3">
+          <div className="text-xl text-start text-gray-800 mt-2">{report.productName || "제품명 없음"}</div>
+          <div className="text-sm font-light text-start text-gray-400 mt-2">{report.kcal}kcal</div>
+        </div>
         <div className="flex flex-row items-start gap-3 mt-2"> 
-          {report.ingredientImageUrl && (
-            <Image src={report.ingredientImageUrl} alt="제품 이미지" width={100} height={100} className="rounded-md" />
-          )}
         <div className="flex flex-row items-start flex-wrap gap-3 mt-2">
           <div className="flex items-start  gap-1">
             <span className="bg-violet-100 text-violet-700 px-2 py-1 rounded-md text-xs font-medium whitespace-nowrap">영양정보</span>
