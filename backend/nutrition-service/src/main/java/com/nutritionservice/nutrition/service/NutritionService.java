@@ -51,6 +51,12 @@ public class NutritionService {
 		logger.debug("유저 조회 시작 --------------------------------");
 		UserInfo userInfo = getUserInfoOrThrow(userId);
 
+		// ✅ 발표용: 특정 유저 ID일 경우 강제 productId 변경
+		if ("38".equals(userId)) {
+			logger.debug("🎯 DEMO MODE 활성화! productId 강제 설정");
+			productId = "682d5a46e31db6072a55aa00"; // 예: 제로 초콜릿칩쿠키
+		}
+
 		// 1. 제품 조회
 		logger.debug("제품 조회 시작 --------------------------------");
 		ProductNutrition product = productRepo.findById(productId)
