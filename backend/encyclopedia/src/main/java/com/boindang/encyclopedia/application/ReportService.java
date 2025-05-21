@@ -161,7 +161,7 @@ public class ReportService {
 					.should(QueryBuilders.matchQuery("name", query).fuzziness(Fuzziness.AUTO))
 					.should(QueryBuilders.prefixQuery("name", query))
 				)
-				.size(3); // 최대 3개까지 대응
+				.size(1);
 
 			try {
 				SearchResponse response = client.search(request, RequestOptions.DEFAULT);
@@ -175,6 +175,12 @@ public class ReportService {
 				// 로그만 남기고 무시
 			}
 		}
+
+		if (result.isEmpty()) {
+			// fallback: 입력값 그대로 넘기거나, "정보 없음" 응답 생성
+			result.addAll(queries);
+		}
+
 		return new ArrayList<>(result);
 	}
 
