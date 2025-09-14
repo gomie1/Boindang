@@ -70,7 +70,7 @@ OCR을 이용해 제품의 영양정보를 촬영하면 '텍스트 추출 > 정�
 ### 5. 영양퀴즈
 | 문제 풀기 | 통계 정보 | 오답노트 |
 |-----------|-----------|-----------|
-| <img width="440" height="977" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> | <img width="440" height="977" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> | <img width="440" height="977" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> |
+| <img width="1440" height="3120" alt="Image" src="https://github.com/user-attachments/assets/89f0ddab-749c-4484-8c06-5f78f8de98e0" /> | <img width="440" height="977" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> | <img width="440" height="977" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> |
 | 설명 | 설명 | 설명 |
 <br>
 <br>
