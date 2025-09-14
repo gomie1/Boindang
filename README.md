@@ -7,15 +7,15 @@
 <br>
 
 ## 목차
-1. [프로젝트 소개](#프로젝트-소개)
+1. [프로젝트 소개](#%EF%B8%8F-프로젝트-소개)
 2. [주요 기능](#주요-기능)
-3. [화면 구성](#화면-구성)
-4. [아키텍처](#아키텍처)
+3. [화면 구성](#-화면-구성)
+4. [아키텍처 구성도](#%EF%B8%8F-아키텍처-구성도)
 5. [기술 스택](#%EF%B8%8F-기술-스택)
 6. [어깨PIZZA 팀원 소개](#-어깨pizza-팀원-소개)
 <br>
 
-## 프로젝트 소개
+## 🖥️ 프로젝트 소개
 **보인당**은 제품의 **영양정보 표를 촬영하여 원재료 정보 및 사용자 타입별 리포트를 제공하는 서비스**입니다.
 
 이 서비스의 **목적**은 소비자가 '저당', '무가당' 같은 문구에 현혹되지 않고, <strong>제품에 포함된 숨겨진 첨가물 정보(특히 대체당)</strong>를 정확하게 파악하도록 돕는 것입니다. 많은 제품이 표기법상 당류로 분류되지 않는 대체당을 사용해 '저당'으로 판매되지만, 이는 혈당에 영향을 줄 수 있습니다.
@@ -38,7 +38,18 @@ OCR을 이용해 제품의 영양정보를 촬영하면 '텍스트 추출 > 정�
 
 #### 4. 영양퀴즈
 식품 성분 및 영양소와 관련된 퀴즈를 제공하여 사용자들이 재미있게 영양 지식을 학습할 수 있도록 합니다.  
-퀴즈 결과는 정답 여부와 해설로 피드백을 제공하며, 틀린 문제는 오답노트로 제공됩니다.
+퀴즈 결과는 정답 여부와 해설로 피드백을 제공하며, 틀린 문제성
+<br>
+<br>
+
+## 👀 화면 구성
+### 1. ??
+
+| 홈 화면 | 촬영 가이드 | 분석 진행화면 | 리포트 요약 |
+|-----------|-----------|-----------|-----------|
+| 이미지1 | 이미지2 | 이미지3 | 이미지4 |
+| 설명 | 설명 | 설명 | 설명 |
+
 <br>
 <br>
 
@@ -75,6 +86,7 @@ OCR을 이용해 제품의 영양정보를 촬영하면 '텍스트 추출 > 정�
 
 #### Communication
 ![GitLab](https://img.shields.io/badge/GitLab-FC6D26?style=flat&logo=gitlab&logoColor=white)
+![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=flat&logo=swagger&logoColor=black)
 ![Jira](https://img.shields.io/badge/Jira-0052CC?style=flat&logo=jira&logoColor=white)
 ![Notion](https://img.shields.io/badge/Notion-000000?style=flat&logo=notion&logoColor=white)
 ![Mattermost](https://img.shields.io/badge/Mattermost-0072C6?style=flat&logo=mattermost&logoColor=white)
