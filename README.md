@@ -1,4 +1,4 @@
-# 보인당 (BOINDANG)
+# 보인당
 <img width="2000" height="1124" alt="Image" src="https://github.com/user-attachments/assets/7b6630fd-e200-4467-bfa0-69f6961dd3fa" />
 <br>
 
