@@ -44,12 +44,34 @@ OCR을 이용해 제품의 영양정보를 촬영하면 '텍스트 추출 > 정�
 
 ## 👀 화면 구성
 ### 1. ??
-
 | 홈 화면 | 촬영 가이드 | 분석 진행화면 | 리포트 요약 |
 |-----------|-----------|-----------|-----------|
-| 이미지1 | 이미지2 | 이미지3 | 이미지4 |
+| <img width="440" height="977" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> | <img width="440" height="977" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> | <img width="440" height="977" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> | <img width="440" height="977" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> |
 | 설명 | 설명 | 설명 | 설명 |
 
+### 2. 분석 레포트 상세보기
+| 안전도 체크 | 성분 구성 | 유저 타입별 주의 성분 |
+|-----------|-----------|-----------|
+| <img width="440" height="977" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> | <img width="440" height="977" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> | <img width="440" height="977" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> |
+| 설명 | 설명 | 설명 |
+
+### 3. 성분 백과사전
+| 백과사전 홈 화면 | 성분 검색 | 성분 상세 정보 |
+|-----------|-----------|-----------|
+| <img width="440" height="977" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> | <img width="440" height="977" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> | <img width="440" height="977" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> |
+| 설명 | 설명 | 설명 |
+
+### 4. 체험단
+| 체험단 신청 목록 | 상세 화면 | 신청 내역 |
+|-----------|-----------|-----------|
+| <img width="440" height="977" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> | <img width="440" height="977" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> | <img width="440" height="977" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> |
+| 설명 | 설명 | 설명 |
+
+### 5. 영양퀴즈
+| 문제 풀기 | 통계 정보 | 오답노트 |
+|-----------|-----------|-----------|
+| <img width="440" height="977" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> | <img width="440" height="977" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> | <img width="440" height="977" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> |
+| 설명 | 설명 | 설명 |
 <br>
 <br>
 
