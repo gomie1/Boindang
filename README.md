@@ -11,8 +11,8 @@
 2. [주요 기능](#주요-기능)
 3. [화면 구성](#화면-구성)
 4. [아키텍처](#아키텍처)
-5. [기술 스택](#기술-스택)
-6. [어깨PIZZA 팀원 소개](#어깨pizza-팀원-소개)
+5. [기술 스택](#%EF%B8%8F-기술-스택)
+6. [어깨PIZZA 팀원 소개](#-어깨pizza-팀원-소개)
 <br>
 
 ## 프로젝트 소개
@@ -23,16 +23,66 @@
 <br>
 <br>
 
-### 주요 기능
-1. OCR 기반 영양성분 분석
-2. 유저 타입별 맞춤 정보 제공
-3. 성분 백과사전
-4. 체험단
-5. 영양퀴즈
+### [주요 기능]
+#### 1. OCR 기반 맞춤형 영양성분 분석
+OCR을 이용해 제품의 영양정보를 촬영하면 '텍스트 추출 > 정제 > DB 매칭'의 과정을 거쳐 영양성분 목록을 생성합니다.<br>
+생성된 성분 데이터는 사용자별 관심사와 건강 상태를 고려하여, 주의해야할 성분을 파악해 제품의 영양성분 분석 리포트를 제공합니다.
+
+#### 2. 성분 백과사전
+제품 촬영 없이 식품성분에 대한 정보를 검색할 수 있습니다.<br>
+각 성분 페이지에서는 영양 정보, 건강 영향, 사용자 유형 별 주의사항 등 풍부한 설명을 확인할 수 있으며,<br>
+실시간 인기 검색어 Top3와 카테고리별 탐색 기능을 지원해, 사용자는 관심 있는 성분을 빠르게 찾고 탐색할 수 있습니다. 
+
+#### 3. 체험단
+신제품이나 특정 식품을 선착순 이벤트 형태로 모집하여, 빠르게 신청한 사용자가 우선적으로 참여할 수 있습니다.
+
+#### 4. 영양퀴즈
+식품 성분 및 영양소와 관련된 퀴즈를 제공하여 사용자들이 재미있게 영양 지식을 학습할 수 있도록 합니다.  
+퀴즈 결과는 정답 여부와 해설로 피드백을 제공하며, 틀린 문제는 오답노트로 제공됩니다.
 <br>
 <br>
 
-## 🍕 어깨PIZZA 팀원 소개
+## ⚙️ 아키텍처 구성도
+
+## 🛠️ 기술 스택
+#### Frontend
+![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black)
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&logo=nextdotjs&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)
+
+#### Backend
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=flat&logo=springboot&logoColor=white)
+![Spring Security](https://img.shields.io/badge/Spring_Security-6DB33F?style=flat&logo=springsecurity&logoColor=white)
+![Spring Cloud Gateway](https://img.shields.io/badge/Spring_Cloud_Gateway-6DB33F?style=flat&logo=spring&logoColor=white)
+![Eureka](https://img.shields.io/badge/Eureka-6DB33F?style=flat&logo=spring&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white)  
+![Apache Kafka](https://img.shields.io/badge/Apache_Kafka-231F20?style=flat&logo=apachekafka&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat&logo=redis&logoColor=white)
+![Elasticsearch](https://img.shields.io/badge/Elasticsearch-005571?style=flat&logo=elasticsearch&logoColor=white)
+![Kibana](https://img.shields.io/badge/Kibana-005571?style=flat&logo=kibana&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=mongodb&logoColor=white)
+
+#### CI/CD, Monitoring
+![Nginx](https://img.shields.io/badge/Nginx-009639?style=flat&logo=nginx&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
+![Jenkins](https://img.shields.io/badge/Jenkins-D24939?style=flat&logo=jenkins&logoColor=white)
+![Amazon EC2](https://img.shields.io/badge/Amazon_EC2-FF9900?style=flat&logo=amazonec2&logoColor=white)
+![Amazon S3](https://img.shields.io/badge/Amazon_S3-569A31?style=flat&logo=amazons3&logoColor=white)  
+![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=flat&logo=prometheus&logoColor=white)
+![Grafana](https://img.shields.io/badge/Grafana-F46800?style=flat&logo=grafana&logoColor=white)
+
+#### Communication
+![GitLab](https://img.shields.io/badge/GitLab-FC6D26?style=flat&logo=gitlab&logoColor=white)
+![Jira](https://img.shields.io/badge/Jira-0052CC?style=flat&logo=jira&logoColor=white)
+![Notion](https://img.shields.io/badge/Notion-000000?style=flat&logo=notion&logoColor=white)
+![Mattermost](https://img.shields.io/badge/Mattermost-0072C6?style=flat&logo=mattermost&logoColor=white)
+![Figma](https://img.shields.io/badge/Figma-F24E1E?style=flat&logo=figma&logoColor=white)
+![Discord](https://img.shields.io/badge/Discord-5865F2?style=flat&logo=discord&logoColor=white)
+<br>
+<br>
+
+## 🩵 어깨PIZZA 팀원 소개
 | 이름   | 역할           | 이름   | 역할      |
 | ------ | -------------- | ------ | --------- |
 | [김유진](https://github.com/zladb) | Backend, OCR   | [권가영](https://github.com/gayeong718) | Frontend |
