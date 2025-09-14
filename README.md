@@ -77,7 +77,6 @@ OCR을 이용해 제품의 영양정보를 촬영하면 '텍스트 추출 > 정�
 | <img width="440" height="977" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> | <img width="440" height="977" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> | <img width="440" height="977" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> |
 | 설명 | 설명 | 설명 |
 <br>
-<br>
 
 ## ⚙️ 아키텍처 구성도
 <img width="2470" height="1984" alt="Image" src="https://github.com/user-attachments/assets/00881948-e27e-41c8-8dcb-74e7279f8218" /><br>
