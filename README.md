@@ -52,11 +52,12 @@ OCR을 이용해 제품의 영양정보를 촬영하면 '텍스트 추출 > 정�
 
 
 ### 2. 분석 레포트 상세보기
-| 안전도 체크 | 성분 구성 | 유저 타입별 주의 성분 |
-|-----------|-----------|-----------|
-| <img width="440" height="977" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> | <img width="440" height="977" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> | <img width="440" height="977" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> |
-| 설명 | 설명 | 설명 |
+| 분석 완료 알림 | 안전도 체크 | 성분 구성 | 유저 타입별 주의 성분 |
+|-----------|-----------|-----------|-----------|
+| <img height="500" alt="2" src="https://github.com/user-attachments/assets/ddec2505-6b7a-463c-975a-e7c9873bf1b7" /> | <img height="500" alt="2-1" src="https://github.com/user-attachments/assets/e2fa2698-010e-4f0c-a92b-e818340c8081" /> | <img height="500" alt="2-2" src="https://github.com/user-attachments/assets/6fb690cc-a521-479b-92bf-c449744752d5" /> | <img height="500" alt="2-3" src="https://github.com/user-attachments/assets/674acd1f-9565-4bc6-a414-33556748d174" /> |
+| 설명 | 설명 | 설명 | 설명 |
 <br>
+
 
 ### 3. 성분 백과사전
 | 백과사전 홈 화면 | 성분 검색 | 성분 상세 정보 |
