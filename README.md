@@ -47,7 +47,6 @@ OCR을 이용해 제품의 영양정보를 촬영하면 '텍스트 추출 > 정�
 | 홈 화면 | 촬영 가이드 | 분석 진행화면 | 리포트 요약 |
 |-----------|-----------|-----------|-----------|
 | <img height="500" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> | <img height="500" alt="cameraGuide" src="https://github.com/user-attachments/assets/f526d106-5cf7-462d-9fbf-85d4bf8d13f9" /> | <img height="500" alt="cameraLoading" src="https://github.com/user-attachments/assets/c1dbcb6f-b3dc-41b0-8361-7064361b25a3" /> | <img height="500" alt="report" src="https://github.com/user-attachments/assets/f7106ad4-3646-4599-8432-85bbfc5eaee2" /> |
-| 설명 | 설명 | 설명 | 설명 |
 <br>
 
 
@@ -55,29 +54,24 @@ OCR을 이용해 제품의 영양정보를 촬영하면 '텍스트 추출 > 정�
 | 분석 완료 알림 | 안전도 체크 | 성분 구성 | 유저 타입별 주의 성분 |
 |-----------|-----------|-----------|-----------|
 | <img height="500" alt="2" src="https://github.com/user-attachments/assets/ddec2505-6b7a-463c-975a-e7c9873bf1b7" /> | <img height="500" alt="2-1" src="https://github.com/user-attachments/assets/e2fa2698-010e-4f0c-a92b-e818340c8081" /> | <img height="500" alt="2-2" src="https://github.com/user-attachments/assets/6fb690cc-a521-479b-92bf-c449744752d5" /> | <img height="500" alt="2-3" src="https://github.com/user-attachments/assets/674acd1f-9565-4bc6-a414-33556748d174" /> |
-| 설명 | 설명 | 설명 | 설명 |
 <br>
-
 
 ### 3. 성분 백과사전
 | 백과사전 홈 화면 | 성분 검색 | 성분 상세 정보 |
 |-----------|-----------|-----------|
-| <img width="440" height="977" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> | <img width="440" height="977" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> | <img width="440" height="977" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> |
-| 설명 | 설명 | 설명 |
+| <img height="500" alt="3-1" src="https://github.com/user-attachments/assets/3e333d34-0130-4678-92fd-4b6259bce9cc" /> | <img height="500" alt="3-2" src="https://github.com/user-attachments/assets/3c8c5fea-6739-4fcb-85a6-79b4c3d074e2" /> | <img height="500" alt="3-3" src="https://github.com/user-attachments/assets/ec6753f7-58f7-4681-bc09-7a58bfcb71e0" /> |
 <br>
 
-### 4. 체험단
-| 체험단 신청 목록 | 상세 화면 | 신청 내역 |
-|-----------|-----------|-----------|
-| <img width="440" height="977" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> | <img width="440" height="977" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> | <img width="440" height="977" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> |
-| 설명 | 설명 | 설명 |
-<br>
-
-### 5. 영양퀴즈
+### 4. 영양퀴즈
 | 문제 풀기 | 통계 정보 | 오답노트 |
 |-----------|-----------|-----------|
-| <img width="440" height="977" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> | <img width="440" height="977" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> | <img width="440" height="977" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> |
-| 설명 | 설명 | 설명 |
+| <img height="500" alt="5-1" src="https://github.com/user-attachments/assets/bd934557-bc5c-42bd-b421-ce026c1b02fe" /> | <img height="500" alt="5-2" src="https://github.com/user-attachments/assets/3ef7c05d-b9de-4b9f-bfe3-a502edbdb689" /> | <img height="500" alt="5-3" src="https://github.com/user-attachments/assets/12d6aec8-360d-4b74-8c96-d5bc4452fa85" /> |
+<br>
+
+### 5. 체험단 및 마이페이지
+| 체험단 상세 화면 | 마이페이지 |
+|-----------|-----------|
+| <img height="500" alt="4-2" src="https://github.com/user-attachments/assets/d545b3c8-c36b-48f6-863f-2129929c993b" /> | <img height="500" alt="4-3" src="https://github.com/user-attachments/assets/2ea5f89b-7338-456d-8013-4cb8b5b40a71" /> |
 <br>
 
 ## ⚙️ 아키텍처 구성도
