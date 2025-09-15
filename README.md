@@ -46,9 +46,10 @@ OCR을 이용해 제품의 영양정보를 촬영하면 '텍스트 추출 > 정�
 ### 1. 메인 기능 （영양성분 분석）
 | 홈 화면 | 촬영 가이드 | 분석 진행화면 | 리포트 요약 |
 |-----------|-----------|-----------|-----------|
-| <img width="440" height="977" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> | <img width="440" height="977" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> | <img width="440" height="977" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> | <img width="440" height="977" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> |
+| <img height="500" alt="Image" src="https://github.com/user-attachments/assets/3152220d-6a13-44d5-94a6-c0b97266f876" /> | <img height="500" alt="cameraGuide" src="https://github.com/user-attachments/assets/f526d106-5cf7-462d-9fbf-85d4bf8d13f9" /> | <img height="500" alt="cameraLoading" src="https://github.com/user-attachments/assets/c1dbcb6f-b3dc-41b0-8361-7064361b25a3" /> | <img height="500" alt="report" src="https://github.com/user-attachments/assets/f7106ad4-3646-4599-8432-85bbfc5eaee2" /> |
 | 설명 | 설명 | 설명 | 설명 |
 <br>
+
 
 ### 2. 분석 레포트 상세보기
 | 안전도 체크 | 성분 구성 | 유저 타입별 주의 성분 |
