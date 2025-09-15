@@ -117,6 +117,7 @@ OCR을 이용해 제품의 영양정보를 촬영하면 '텍스트 추출 > 정�
 <br>
 
 ## 🩵 어깨PIZZA 팀원 소개
+<img width="400" alt="Image" src="https://github.com/user-attachments/assets/b27af16b-0878-40f5-9293-d8313a840e71" /><br>
 | 이름   | 역할           | 이름   | 역할      |
 | ------ | -------------- | ------ | --------- |
 | [김유진](https://github.com/zladb) | Backend, OCR   | [권가영](https://github.com/gayeong718) | Frontend |
